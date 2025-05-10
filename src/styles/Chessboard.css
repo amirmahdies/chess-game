@@ -1,0 +1,48 @@
+.chessboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px; /* Add space between top of page and board */
+}
+
+.game-status {
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 10px;
+  padding: 8px 16px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+}
+
+.check {
+  color: #ff6b6b; /* Red color for check */
+  font-weight: bold;
+}
+
+.checkmate {
+  color: #ff6b6b; /* Red color for checkmate */
+  font-weight: bold;
+}
+
+.chessboard {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); /* 8 equal columns */
+  grid-template-rows: repeat(8, 1fr);    /* 8 equal rows */
+  width: min(90vmin, 700px);  /* Responsive but max 700px */
+  height: min(90vmin, 700px); /* Maintain square aspect ratio */
+  border: 1px solid #ca15151c;  /* Dark brown border */
+  box-shadow: 10px -10px 20px rgba(226, 35, 35, 0.5);
+  margin-top: 0;
+}
+
+.turn-indicator {
+  background-color: #121212;
+  color: white;
+  font-size: 1.2rem;
+  padding: 8px 16px;
+  text-align: center;
+  border-radius: 4px;
+  margin-bottom: 15px; /* Space between indicator and board */
+  width: fit-content;
+  border: 1px solid #333;
+}

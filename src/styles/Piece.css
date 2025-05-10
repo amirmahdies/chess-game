@@ -1,0 +1,13 @@
+.chess-piece {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none; /* Prevent image dragging */
+  transition: transform 0.1s;
+}
+
+.chess-piece:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}

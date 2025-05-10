@@ -1,0 +1,181 @@
+.App {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #121212; /* Dark background */
+  padding: 40px;
+  position: relative;
+}
+
+.left-section {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15%;
+  margin-right: 40px;
+}
+
+.chess-title-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.chess-title {
+  color: #FFFFFF;
+  font-size: 3.5rem;
+  position: relative;
+  text-align: left;
+  margin: 0; /* Remove default margins */
+  line-height: 1.1; /* Tighten line spacing */
+  
+  /* Base white shadow for a slightly noisy/glowing base */
+  text-shadow:
+      1px 1px 2px rgba(255, 255, 255, 0.7),
+      -1px -1px 2px rgba(255, 255, 255, 0.7);
+}
+
+/* Pseudo-elements for the glitch layers */
+.chess-title::before,
+.chess-title::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #121212; /* This should match the page background */
+  overflow: hidden;
+  clip-path: inset(0);
+}
+
+.chess-title::before {
+  color: #FF5555;
+  text-shadow: -1px -1px 1px rgba(255, 85, 85, 0.5);
+  animation: glitchBefore 4s infinite steps(1, end) alternate, noiseEffect 3s infinite linear alternate-reverse;
+}
+
+.chess-title::after {
+  color: #00AAFF;
+  text-shadow: 1px 1px 1px rgba(0, 170, 255, 0.5);
+  animation: glitchAfter 5s infinite steps(1, end) alternate-reverse, noiseEffect 3.5s infinite linear alternate;
+}
+
+/* Keyframes for the glitch effects */
+@keyframes glitchBefore {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes glitchAfter {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(2px, -2px); }
+  50% { transform: translate(-2px, 2px); }
+  75% { transform: translate(-2px, -2px); }
+  100% { transform: translate(2px, 2px); }
+}
+
+@keyframes noiseEffect {
+  0% { clip-path: inset(20% 0 40% 0); }
+  20% { clip-path: inset(60% 0 10% 0); }
+  40% { clip-path: inset(40% 0 30% 0); }
+  60% { clip-path: inset(80% 0 5% 0); }
+  80% { clip-path: inset(10% 0 70% 0); }
+  100% { clip-path: inset(30% 0 50% 0); }
+}
+
+/* The rest of your existing CSS for the chessboard */
+
+/* If your chessboard has a container class, add this */
+/* If not, you'll need to add a div around the Chessboard component */
+.App > div:last-child, /* This targets the Chessboard component */
+.App > .chessboard-container {
+  margin-right: 10%; /* Adjust this value to move the board left */
+}
+
+/* Styling for the new control buttons */
+.left-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.control-button {
+  background-color: #4a4a4a;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s, transform 0.2s;
+  border-top: 3px solid transparent;
+}
+
+.control-button:hover {
+  background-color: #ff3333;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-top: 3px solid #ff0000;
+}
+
+.control-button:disabled {
+  background-color: #333333;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+  box-shadow: none;
+  border-top: 3px solid transparent;
+}
+
+/* Add these styles to your App.css */
+
+/* Start screen styling */
+.start-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Start button styling */
+.start-button {
+  background-color: #4a4a4a;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin-top: 40px;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  border-top: 3px solid transparent;
+}
+
+.start-button:hover {
+  background-color: #ff3333;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-top: 3px solid #ff0000;
+}
+
+.start-button:active {
+  transform: scale(0.98);
+}
+
+/* Adjust the chess title on the start screen */
+.start-screen .chess-title-container {
+  margin: 0;
+}
+
+.start-screen .chess-title {
+  font-size: 5rem; /* Larger title on start screen */
+}

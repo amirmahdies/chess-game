@@ -1,0 +1,26 @@
+.game-controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.control-button {
+  background-color: #4a4a4a;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+.control-button:hover {
+  background-color: #666666;
+}
+
+.control-button:disabled {
+  background-color: #333333;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
